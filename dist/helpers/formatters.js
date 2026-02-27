@@ -1,4 +1,7 @@
-export function formatPrice(rating) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.formatPrice = formatPrice;
+function formatPrice(rating) {
     if (rating === null) {
         return "No reviews";
     }
