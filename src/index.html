@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ===== META TAGS ===== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Analytics</title>
+
+    <!-- ===== STYLESHEETS ===== -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ===== MAIN CONTAINER ===== -->
+    <div class="container">
+        <!-- ===== HEADER SECTION ===== -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">Store Analytics</h1>
+                <p class="subtitle">Manage your product catalog</p>
+            </div>
+        </header>
+
+        <!-- ===== MAIN CONTENT ===== -->
+        <main class="main">
+            <!-- ===== ADD PRODUCT SECTION ===== -->
+            <!-- Form to add new products -->
+            <section class="add-product-section">
+                <div class="form-container">
+                    <h2 class="section-title">Add Product</h2>
+                    <form id="productForm" class="product-form">
+                        <!-- Product Name Field -->
+                        <div class="form-group">
+                            <label for="productName">Product Name <span class="required">*</span></label>
+                            <input 
+                                type="text" 
+                                id="productName" 
+                                placeholder="Enter product name"
+                                required
+                            >
+                            <span class="error-message" id="productNameError"></span>
+                        </div>
+
+                        <!-- Category Field -->
+                        <div class="form-group">
+                            <label for="productCategory">Category <span class="required">*</span></label>
+                            <input 
+                                type="text" 
+                                id="productCategory" 
+                                placeholder="e.g., Electronics, Books, Accessories, Clothing"
+                                required
+                            >
+                            <span class="error-message" id="productCategoryError"></span>
+                        </div>
+
+                        <!-- Price Field -->
+                        <div class="form-group">
+                            <label for="productPrice">Price <span class="required">*</span></label>
+                            <input 
+                                type="number" 
+                                id="productPrice" 
+                                placeholder="0.00"
+                                step="0.01"
+                                min="0"
+                                required
+                            >
+                            <span class="error-message" id="productPriceError"></span>
+                        </div>
+
+                        <!-- Stock Quantity Field -->
+                        <div class="form-group">
+                            <label for="productQuantity">Stock Quantity <span class="required">*</span></label>
+                            <input 
+                                type="number" 
+                                id="productQuantity" 
+                                placeholder="e.g., 10"
+                                min="0"
+                                required
+                            >
+                            <span class="error-message" id="productQuantityError"></span>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn-primary">Add Product</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- ===== CONTROLS SECTION ===== -->
+            <!-- Search and sort controls -->
+            <section class="controls-section">
+                <div class="controls">
+                    <!-- Search Input -->
+                    <div class="control-group">
+                        <label for="filterInput">Search by name:</label>
+                        <input 
+                            type="text" 
+                            id="filterInput" 
+                            placeholder="Search products..."
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <!-- Sort Dropdown -->
+                    <div class="control-group">
+                        <label for="sortSelect">Sort by:</label>
+                        <select id="sortSelect">
+                            <option value="name">Name (A-Z)</option>
+                            <option value="price-asc">Price (Low to High)</option>
+                            <option value="price-desc">Price (High to Low)</option>
+                            <option value="rating">Rating (Best First)</option>
+                        </select>
+                    </div>
+
+                    <!-- Export Button -->
+                    <button id="exportBtn" class="btn-secondary" title="Download products as JSON file">📥 Export</button>
+
+                    <!-- Clear All Button -->
+                    <button id="clearAllBtn" class="btn-secondary">Clear All</button>
+                </div>
+            </section>
+
+            <!-- ===== PRODUCTS SECTION ===== -->
+            <!-- Product grid display -->
+            <section class="products-section">
+                <!-- Products header with count -->
+                <div class="products-header">
+                    <h2 class="section-title">
+                        Products 
+                        <span id="productCount" class="count-badge">0</span>
+                    </h2>
+                </div>
+
+                <!-- Products Grid Container -->
+                <div id="productsGrid" class="products-grid">
+                    <!-- Product cards inserted here by JavaScript -->
+                </div>
+
+                <!-- Empty State Message -->
+                <div id="emptyState" class="empty-state" style="display: none;">
+                    <p>No products found. Try a different search!</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer">
+            <p>Store analytics, TypeScript</p>
+            
+            <!-- Debug Panel - Shows what's saved -->
+            <div style="margin-top: 2rem; padding: 1rem; background: #f3f4f6; border-radius: 8px; font-size: 0.9rem;">
+                <button onclick="window.showDebugInfo && window.showDebugInfo()" style="padding: 0.5rem 1rem; background: #2563eb; color: white; border: none; border-radius: 4px; cursor: pointer;">🔍 Show Saved Data</button>
+                <pre id="debugOutput" style="margin-top: 1rem; background: white; padding: 1rem; border-radius: 4px; max-height: 300px; overflow: auto; display: none; font-size: 0.8rem;"></pre>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <!-- Load the compiled TypeScript application -->
+    <script src="../dist/task2.js"></script>
+</body>
+</html>

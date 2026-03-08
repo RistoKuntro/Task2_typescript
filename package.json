@@ -1,0 +1,20 @@
+{
+  "name": "typescript-tasks",
+  "version": "1.0.0",
+  "description": "TypeScript tasks including Store Analytics",
+  "main": "dist/task2.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "keywords": [
+    "typescript",
+    "store-analytics",
+    "inventory-management"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
